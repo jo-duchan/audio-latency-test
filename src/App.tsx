@@ -3,11 +3,12 @@ import AudioObjectPlayer from './components/AudioObjectPlayer';
 import AudioTagPlayer from './components/AudioTagPlayer';
 
 // const AUDIO_PATH = './ping.mp3';
-const AUDIO_PATH = 'bad-guys.mp3';
+// const AUDIO_PATH = './bad-guys.mp3';
+const AUDIO_PATH = './pop-up-sound.wav';
 
 function App() {
   return (
-    <div className="flex justify-center items-center w-full h-full px-[20px] sm:p-0 sm:h-full">
+    <div className="flex justify-center items-center w-full h-auto py-[40px] px-[20px] sm:p-0 sm:h-full">
       <div>
         <div className="mb-[32px]">
           <h2 className="text-[32px] font-bold text-[#fff] leading-[1.15] mb-[12px] sm:text-[60px]">

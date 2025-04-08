@@ -4,7 +4,7 @@ interface CardProps {
   onPlay: () => void;
   onStop: () => void;
   name: string;
-  // latency: number | null;
+  latency: number | null;
   bgColor: string;
   borderColor: string;
 }
@@ -13,7 +13,7 @@ export default function Card({
   onPlay,
   onStop,
   name,
-  // latency,
+  latency,
   bgColor,
   borderColor,
 }: CardProps) {
@@ -36,7 +36,7 @@ export default function Card({
       type="button"
       onClick={handleClick}
     >
-      <div className="flex justify-between">
+      <div className="w-full flex justify-between">
         <h4 className="w-[240px] text-[22px] font-bold sm:text-[32px] sm:w-[230px]">
           {name}
         </h4>
@@ -49,10 +49,10 @@ export default function Card({
         </div>
       </div>
       <div className="flex flex-col gap-[8px]">
-        {/* <span className="text-[16px] sm:text-[24px]">Latency</span>
+        <span className="text-[16px] sm:text-[24px]">Latency</span>
         <span className="text-[24px] sm:text-[40px]">
           {latency !== null ? `${latency.toFixed(2)} ms` : 'Pending'}
-        </span> */}
+        </span>
       </div>
     </button>
   );

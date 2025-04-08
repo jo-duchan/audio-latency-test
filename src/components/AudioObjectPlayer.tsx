@@ -1,7 +1,4 @@
-import {
-  useRef,
-  //  useState
-} from 'react';
+import { useRef, useState } from 'react';
 import Card from './ui/Card';
 
 interface AudioObjectPlayerProps {
@@ -11,7 +8,7 @@ interface AudioObjectPlayerProps {
 export default function AudioObjectPlayer({
   audioPath,
 }: AudioObjectPlayerProps) {
-  // const [latency, setLatency] = useState<number | null>(null);
+  const [latency, setLatency] = useState<number | null>(null);
   const audioInstanceRef = useRef(new Audio(audioPath));
   const lastPlayTimeRef = useRef<number | null>(null);
   const isPlayingRef = useRef<boolean>(false);
@@ -22,20 +19,20 @@ export default function AudioObjectPlayer({
 
     const audio = audioInstanceRef.current;
 
-    // audio.onplay = () => {
-    //   const now = performance.now();
-    //   if (lastPlayTimeRef.current !== null) {
-    //     setLatency(now - lastPlayTimeRef.current);
-    //   }
-    //   lastPlayTimeRef.current = now;
-    // };
+    audio.onplay = () => {
+      const now = performance.now();
+      if (lastPlayTimeRef.current !== null) {
+        setLatency(now - lastPlayTimeRef.current);
+      }
+      lastPlayTimeRef.current = now;
+    };
 
-    // audio.onended = () => {
-    //   if (isPlayingRef.current) {
-    //     audio.currentTime = 0;
-    //     audio.play();
-    //   }
-    // };
+    audio.onended = () => {
+      if (isPlayingRef.current) {
+        audio.currentTime = 0;
+        audio.play();
+      }
+    };
 
     audio.play();
   };
@@ -57,7 +54,7 @@ export default function AudioObjectPlayer({
       onPlay={handlePlayAudioObject}
       onStop={handleStopAudioObject}
       name="Audio Object"
-      // latency={latency}
+      latency={latency}
       bgColor="#7256AB"
       borderColor="#EFE7FF"
     />
