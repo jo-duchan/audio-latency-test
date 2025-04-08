@@ -1,7 +1,4 @@
-import {
-  useRef,
-  //  useState
-} from 'react';
+import { useRef, useState } from 'react';
 import Card from './ui/Card';
 
 interface AudioObjectPlayerProps {
@@ -20,7 +17,6 @@ export default function AudioObjectPlayer({
     isPlayingRef.current = true;
 
     const audio = audioInstanceRef.current;
-
     audio.play();
   };
 

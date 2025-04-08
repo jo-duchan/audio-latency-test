@@ -1,7 +1,4 @@
-import {
-  useRef,
-  // useState
-} from 'react';
+import { useRef, useState } from 'react';
 import Card from './ui/Card';
 
 declare global {
@@ -43,7 +40,6 @@ export default function AudioContextPlayer({
     source.buffer = buffer;
     source.connect(context.destination);
     source.start();
-
     sourceNodeRef.current = source;
   };
 
