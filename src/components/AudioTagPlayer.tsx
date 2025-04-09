@@ -1,4 +1,5 @@
 import {
+  useEffect,
   useRef,
   // useState, useEffect
 } from 'react';
@@ -27,11 +28,28 @@ export default function AudioTagPlayer({ audioPath }: AudioTagPlayerProps) {
     lastPlayTimeRef.current = null;
   };
 
+  useEffect(() => {
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) {
+        // console.log('🔕 백그라운드 상태입니다');
+
+        audioRef?.current?.pause();
+      } else {
+        audioRef?.current?.play();
+        // console.log('🔔 포그라운드 상태입니다');
+      }
+    });
+  }, []);
+
   return (
     <>
-      <audio ref={audioRef} src={audioPath} preload="auto" />
+      {/* <audio ref={audioRef} src={audioPath} preload="auto" autoPlay /> */}
+      <audio ref={audioRef} src={audioPath} />
       <Card
-        onPlay={handlePlayAudioTag}
+        // onPlay={handlePlayAudioTag}
+        onPlay={() => {
+          audioRef?.current?.play();
+        }}
         onStop={handleStopAudioTag}
         name="HTML Audio Tag"
         bgColor="#337544"
