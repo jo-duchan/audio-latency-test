@@ -14,6 +14,8 @@ interface AudioContextPlayerProps {
 export default function AudioContextPlayer({
   audioPath,
 }: AudioContextPlayerProps) {
+  const [latency, setLatency] = useState<number | null>(null);
+
   const audioContextRef = useRef<AudioContext | null>(null);
   const audioBufferRef = useRef<AudioBuffer | null>(null);
   const isPlayingRef = useRef<boolean>(false);
@@ -40,6 +42,19 @@ export default function AudioContextPlayer({
     source.buffer = buffer;
     source.connect(context.destination);
     source.start();
+
+    const now = performance.now();
+    if (lastPlayTimeRef.current !== null) {
+      setLatency(now - lastPlayTimeRef.current);
+    }
+    lastPlayTimeRef.current = now;
+
+    source.onended = () => {
+      if (isPlayingRef.current) {
+        playSound(); // 반복 재생
+      }
+    };
+
     sourceNodeRef.current = source;
   };
 
@@ -93,6 +108,7 @@ export default function AudioContextPlayer({
       onPlay={handlePlayAudioContext}
       onStop={handleStopAudioContext}
       name="Web Audio Context API"
+      latency={latency}
       bgColor="#AA472E"
       borderColor="#FFA891"
     />

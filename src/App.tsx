@@ -14,13 +14,6 @@ function App() {
     setAudioPath(path);
   };
   return (
-<<<<<<< Updated upstream
-    <div className="flex justify-center items-center w-full h-full px-[20px] sm:p-0 sm:h-full">
-      <div className="flex flex-col gap-[20px] sm:flex-row sm:gap-[45px]">
-        <AudioTagPlayer audioPath={AUDIO_PATH} />
-        <AudioObjectPlayer audioPath={AUDIO_PATH} />
-        <AudioContextPlayer audioPath={AUDIO_PATH} />
-=======
     <div className="flex justify-center items-center w-full h-auto py-[40px] px-[20px] sm:p-0 sm:h-full">
       <div>
         <div className="mb-[32px]">
@@ -51,7 +44,6 @@ function App() {
           <AudioObjectPlayer audioPath={audioPath} />
           <AudioContextPlayer audioPath={audioPath} />
         </div>
->>>>>>> Stashed changes
       </div>
     </div>
   );
