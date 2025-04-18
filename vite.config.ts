@@ -6,4 +6,7 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
   base: '/audio-latency-test/',
   plugins: [react(), tailwindcss()],
+  server: {
+    allowedHosts: ['.ngrok-free.app'],
+  },
 });

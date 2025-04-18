@@ -3,6 +3,7 @@ import AudioContextPlayer from './components/AudioContextPlayer';
 import AudioObjectPlayer from './components/AudioObjectPlayer';
 import AudioTagPlayer from './components/AudioTagPlayer';
 import AudioFormatChip from './components/ui/AudioFormatChip';
+// import AudioPlayer from './components/AudioPlayer';
 
 const AUDIO_WAV_PATH = './pop-up-sound.wav';
 const AUDIO_MP3_PATH = './pop-up-sound.mp3';
@@ -40,6 +41,28 @@ function App() {
           </div>
         </div>
         <div className="flex flex-col gap-[20px] sm:flex-row sm:gap-[45px]">
+          {/* <AudioTagPlayer audioPath={audioPath} />
+          <AudioPlayer
+            audioPath={audioPath}
+            type="tag"
+            label="HTML Audio Tag"
+            bgColor="#337544"
+            borderColor="#A3E1B3"
+          />
+          <AudioPlayer
+            audioPath={audioPath}
+            type="object"
+            label="Audio Object"
+            bgColor="#7256AB"
+            borderColor="#EFE7FF"
+          />
+          <AudioPlayer
+            audioPath={audioPath}
+            type="context"
+            label="Web Audio Context API"
+            bgColor="#AA472E"
+            borderColor="#FFA891"
+          /> */}
           <AudioTagPlayer audioPath={audioPath} />
           <AudioObjectPlayer audioPath={audioPath} />
           <AudioContextPlayer audioPath={audioPath} />
