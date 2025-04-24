@@ -26,7 +26,7 @@ export default function useAudioController({
 
     switch (type) {
       case 'tag':
-        if (!audioElement) return; // audioElement 준비 전에는 아무것도 하지 않음
+        if (!audioElement) return;
         strategy = new HTMLAudioTagStrategy(audioElement, setLatency);
         break;
 

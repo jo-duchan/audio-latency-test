@@ -14,7 +14,7 @@ export class HTMLAudioTagStrategy implements AudioPlaybackStrategy {
     this.audio = audioElement;
     this.setLatencyCallback = setLatency;
 
-    // 🎯 초기화 시 이벤트 리스너 등록
+    // 초기화 시 이벤트 리스너 등록
     this.audio.addEventListener('play', this.handlePlay);
     this.audio.addEventListener('ended', this.handleEnded);
   }
